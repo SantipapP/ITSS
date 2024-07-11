@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { CiSearch } from "react-icons/ci";
+import { MdDashboard } from "react-icons/md";
+import { IoHomeOutline } from "react-icons/io5";
+import { CiLogout } from "react-icons/ci";
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import classNames from 'classnames';
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
@@ -12,8 +14,13 @@ const Sidebar = () => {
 
     let menuItems: { icon: JSX.Element, text: string, path: string }[] = [];
     menuItems = [
-        { icon: <CiSearch size={25} className="mr-4" />, text: "Dashboard", path: "/Search" },
+        { icon: <MdDashboard size={25} className="mr-4" />, text: "Dashboard", path: "/Search" },
     ]
+
+    const userMenuItems = [
+        { icon: <IoHomeOutline size={25} className="mr-4" />, text: "Menu", path: "/Home" },
+        { icon: <CiLogout size={25} className="mr-4" />, text: "Logout" },
+    ];
 
     const handleLogout = () => {
         localStorage.clear();
@@ -29,7 +36,7 @@ const Sidebar = () => {
                         <AiOutlineMenu size={30} />
                     </div>
                     <h1 className="text-2xl sm:text-2xl lg:text-2xl px-2">
-                        <span className="font-bold">Pre-Advice (V.2)</span>
+                        <span className="font-bold">ITSS</span>
                     </h1>
                 </div>
                 {/* End side */}
@@ -109,7 +116,7 @@ const Sidebar = () => {
                         className="absolute right-4 top-4 cursor-pointer"
                     />
                     <h2 className="text-2xl p-4">
-                        <span className="font-bold">Pre-Advice (V.2)</span>
+                        <span className="font-bold">ITSS</span>
                     </h2>
                     <nav>
                         <ul className="flex flex-col p-4 text-gray-800">
@@ -128,7 +135,7 @@ const Sidebar = () => {
                             </div>
                             <hr />
                             {/* User Menu */}
-                            {/* {userMenuItems.map(({ icon, text, path }, index) => (
+                            {userMenuItems.map(({ icon, text, path }, index) => (
                                 <div key={index} className="py-1">
                                     <li
                                         className="text-xl flex cursor-pointer w-[100%] rounded-full mx-auto p-2 hover:text-white hover:bg-black"
@@ -143,7 +150,7 @@ const Sidebar = () => {
                                         {icon} {text}
                                     </li>
                                 </div>
-                            ))} */}
+                            ))}
                         </ul>
                     </nav>
                 </div>

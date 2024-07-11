@@ -1,6 +1,6 @@
-import Sidebar from "./Sidebar"
+import Sidebar from "./Sidebar";
 
-const Dashboard = () =>{
+const Dashboard = () => {
     return(
         <>
             <Sidebar />
